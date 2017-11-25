@@ -1,0 +1,65 @@
+Do iorMock.$mock("$getCLIArgument").$expect(2).$return_char("source path")
+Do iorMock.$mock("$getCLIArgument").$expect(3).$return_char("destination/library")
+
+Do $cinst.$when("the library.json doesn't exist in the source")
+
+Do iorMock.$mock("$_fileExists").$expect("source path/library.json").$return(kFalse)
+Do iorMock.$mock("$writeStderr").$expect(con(iorMock.$kRed(),"No library.json found at 'source path'"))
+
+Do iorMock.$cli_import_json() Returns liReturnCode
+Do ioTAP.$is_number(liReturnCode,1,"We return code 1")
+Do $cinst.$assertMocks()
+
+Do $cinst.$when("the parent for the destination doesn't exist")
+
+Do iorMock.$mock("$_fileExists").$expect("source path/library.json").$return(kTrue)
+Do iorMock.$mock("$_fileExists").$expect("destination").$return(kFalse)
+Do iorMock.$mock("$writeStderr").$call(1).$expect(con(iorMock.$kRed(),"'destination' does not exist for writing 'destination/library'"))
+
+Do iorMock.$cli_import_json() Returns liReturnCode
+Do ioTAP.$is_number(liReturnCode,2,"We return code 2")
+Do $cinst.$assertMocks()
+
+Do $cinst.$when("the destination exists")
+
+Do iorMock.$mock("$_fileExists").$expect("destination").$return(kTrue)
+Do iorMock.$mock("$_fileExists").$expect("destination/library").$return(kTrue)
+
+Do iorMock.$mock("$writeStderr").$call(1).$expect(con(iorMock.$kRed(),"The destination 'destination/library' must not already exist"))
+
+Do iorMock.$cli_import_json() Returns liReturnCode
+Do ioTAP.$is_number(liReturnCode,3,"We return code 3")
+Do $cinst.$assertMocks()
+
+Do $cinst.$when("we can't import from JSON")
+
+Do iorMock.$mock("$_fileExists").$expect("destination/library").$return(kFalse)
+Do llErrors.$cols.$add("pathname",kCharacter,kSimplechar,kCharacterMaxLen)
+Do llErrors.$cols.$add("errorcode",kInteger)
+Do llErrors.$cols.$add("errortext",kCharacter,kSimplechar,kCharacterMaxLen)
+Do llErrors.$cols.$add("lineno",kInteger)
+Do llWarnings.$copydefinition(llErrors)
+
+Do llErrors.$add("error path",1,"error",2)
+Do llWarnings.$add("warning path",3,"warning",4)
+
+Do iorMock.$mock("$_importJSON").$expect("source path","destination/library").$return(kFalse)
+Do iorMock.$mock("$_importJSON").$parameter(3).$return_list(llErrors)
+Do iorMock.$mock("$_importJSON").$parameter(4).$return_list(llWarnings)
+
+Do iorMock.$mock("$writeStderr").$call(1).$expect(con(iorMock.$kYellow(),"Warning for ",iorMock.$kReset(),"warning path.4",iorMock.$kYellow(),": ",iorMock.$kReset(),"3 warning"))
+Do iorMock.$mock("$writeStderr").$call(2).$expect(con(iorMock.$kRed(),"Error for ",iorMock.$kReset(),"error path.2",iorMock.$kRed(),": ",iorMock.$kReset(),"1 error"))
+Do iorMock.$mock("$writeStdout").$expect("Import failed")
+
+Do iorMock.$cli_import_json() Returns liReturnCode
+Do ioTAP.$is_number(liReturnCode,4,"We return code 4")
+Do $cinst.$assertMocks()
+
+Do $cinst.$when("we can import from JSON")
+
+Do iorMock.$mock("$_importJSON").$return(kTrue)
+
+Do iorMock.$mock("$writeStdout").$call(1).$expect("Import complete")
+Do iorMock.$cli_import_json() Returns liReturnCode
+Do ioTAP.$is_number(liReturnCode,0,"We return code 0")
+Do $cinst.$assertMocks()

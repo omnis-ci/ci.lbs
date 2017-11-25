@@ -1,0 +1,266 @@
+[
+	{
+		"name": "$cli_export_json",
+		"ident": 0,
+		"order": 1,
+		"desc": "[library] [destination] Exports [library] to the folder at [destination]",
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+			{
+				"name": "lbOK",
+				"order": 7,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0
+			},
+			{
+				"name": "lcDestination",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
+				"name": "lcExportedLibraryName",
+				"order": 4,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
+				"name": "lcLibraryPath",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
+				"name": "lirLibray",
+				"order": 3,
+				"type": "kItemref",
+				"subtype": "$libs.lib",
+				"sublen": 0
+			},
+			{
+				"name": "llErrors",
+				"order": 5,
+				"type": "kList",
+				"subtype": "",
+				"sublen": 0
+			},
+			{
+				"name": "llWarnings",
+				"order": 6,
+				"type": "kList",
+				"subtype": "",
+				"sublen": 0
+			}
+		]
+	},
+	{
+		"name": "$cli_import_json",
+		"ident": 3,
+		"order": 2,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+			{
+				"name": "lbOK",
+				"order": 6,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0
+			},
+			{
+				"name": "lcDestination",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
+				"name": "lcDestinationParent",
+				"order": 8,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
+				"name": "lcLibraryJson",
+				"order": 7,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
+				"name": "lcSourcePath",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
+				"name": "lirLibray",
+				"order": 3,
+				"type": "kItemref",
+				"subtype": "$libs.lib",
+				"sublen": 0
+			},
+			{
+				"name": "llErrors",
+				"order": 4,
+				"type": "kList",
+				"subtype": "",
+				"sublen": 0
+			},
+			{
+				"name": "llWarnings",
+				"order": 5,
+				"type": "kList",
+				"subtype": "",
+				"sublen": 0
+			}
+		]
+	},
+	{
+		"name": "$_exportJSON",
+		"ident": 1,
+		"order": 3,
+		"pvardefs": [
+			{
+				"name": "pirLibray",
+				"order": 2,
+				"type": "kItemref",
+				"subtype": "$libs.lib",
+				"sublen": 0,
+				"param": 1
+			},
+			{
+				"name": "pcDestination",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2
+			},
+			{
+				"name": "pflErrors",
+				"order": 3,
+				"type": "kFieldreference",
+				"subtype": 0,
+				"sublen": 0,
+				"param": 3
+			},
+			{
+				"name": "pflWarnings",
+				"order": 4,
+				"type": "kFieldreference",
+				"subtype": 0,
+				"sublen": 0,
+				"param": 4
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lbOK",
+				"order": 5,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0
+			}
+		]
+	},
+	{
+		"name": "$_fileExists",
+		"ident": 4,
+		"order": 4,
+		"pvardefs": [
+			{
+				"name": "pcPath",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1
+			}
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$_importJSON",
+		"ident": 5,
+		"order": 5,
+		"pvardefs": [
+			{
+				"name": "pcSource",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1
+			},
+			{
+				"name": "pcDestination",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 2
+			},
+			{
+				"name": "pfrErrors",
+				"order": 3,
+				"type": "kFieldreference",
+				"subtype": 0,
+				"sublen": 0,
+				"param": 3
+			},
+			{
+				"name": "pfrWarnings",
+				"order": 4,
+				"type": "kFieldreference",
+				"subtype": 0,
+				"sublen": 0,
+				"param": 4
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lbOK",
+				"order": 5,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0
+			}
+		]
+	},
+	{
+		"name": "$_openLibrary",
+		"ident": 2,
+		"order": 6,
+		"pvardefs": [
+			{
+				"name": "pcLibraryPath",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lirLibray",
+				"order": 2,
+				"type": "kItemref",
+				"subtype": "$libs.lib",
+				"sublen": 0
+			}
+		]
+	}
+]

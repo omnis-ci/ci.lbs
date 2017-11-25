@@ -1,0 +1,75 @@
+[
+	{
+		"name": "$setup",
+		"ident": 0,
+		"order": 1,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$u_cli_export_json",
+		"ident": 1,
+		"order": 2,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+			{
+				"name": "liReturnCode",
+				"order": 1,
+				"type": "kInteger",
+				"subtype": "kShortint",
+				"sublen": 0
+			},
+			{
+				"name": "llErrors",
+				"order": 2,
+				"type": "kList",
+				"subtype": "",
+				"sublen": 0
+			},
+			{
+				"name": "llWarnings",
+				"order": 3,
+				"type": "kList",
+				"subtype": "",
+				"sublen": 0
+			}
+		]
+	},
+	{
+		"name": "$u_cli_import_json",
+		"ident": 2,
+		"order": 3,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+			{
+				"name": "liReturnCode",
+				"order": 1,
+				"type": "kInteger",
+				"subtype": "kShortint",
+				"sublen": 0
+			},
+			{
+				"name": "llErrors",
+				"order": 2,
+				"type": "kList",
+				"subtype": "",
+				"sublen": 0
+			},
+			{
+				"name": "llWarnings",
+				"order": 3,
+				"type": "kList",
+				"subtype": "",
+				"sublen": 0
+			}
+		]
+	}
+]

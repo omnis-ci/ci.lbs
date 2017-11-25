@@ -1,0 +1,3 @@
+Do $root.$exportjson(pirLibray,pcDestination,pflErrors,pflWarnings) Returns lbOK
+
+Quit method lbOK

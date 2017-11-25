@@ -1,0 +1,19 @@
+[
+	{
+		"name": "$construct",
+		"ident": 0,
+		"order": 16384,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+			{
+				"name": "lorCLI",
+				"order": 1,
+				"type": "kObjectref",
+				"subtype": "oCICLI",
+				"sublen": 0
+			}
+		]
+	}
+]

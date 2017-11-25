@@ -1,0 +1,11 @@
+If isnull($libs.$findname("omniscli"))
+	Do $libs.$add(con("!!!",FileOps.$parentdir($clib.$pathname),pathsep(),"omniscli.lbs"))
+End If
+
+Do $objects.oCICLI.$newref() Returns lorCLI
+If lorCLI.$isRunningFromCLI()=kTrue
+	Do lorCLI.$processCLICommand()
+	Quit method
+End If
+
+Do lorCLI.$deleteref()
