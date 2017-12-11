@@ -63,6 +63,7 @@
 		"name": "$cli_import_json",
 		"ident": 3,
 		"order": 2,
+		"desc": "[path/to/source] [path/to/library] Imports [path/to/source] to library at [path/to/library]  Library must not already exist",
 		"pvardefs": [
 
 		],
@@ -126,9 +127,90 @@
 		]
 	},
 	{
+		"name": "$cli_buildapp",
+		"ident": 6,
+		"order": 3,
+		"desc": "[path/to/source] [path/to/library] [optional: CSV string of dependent libraries] Imports [path/to/source] to library at [path/to/library], first opening dependent libraries",
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+			{
+				"name": "lbOK",
+				"order": 6,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0
+			},
+			{
+				"name": "lcDestination",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
+				"name": "lcDestinationParent",
+				"order": 8,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
+				"name": "lcLibrary",
+				"order": 10,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
+				"name": "lcLibraryJson",
+				"order": 7,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
+				"name": "lcRequiredLibs",
+				"order": 9,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
+				"name": "lcSourcePath",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
+				"name": "lirLibray",
+				"order": 3,
+				"type": "kItemref",
+				"subtype": "$libs.lib",
+				"sublen": 0
+			},
+			{
+				"name": "llErrors",
+				"order": 4,
+				"type": "kList",
+				"subtype": "",
+				"sublen": 0
+			},
+			{
+				"name": "llWarnings",
+				"order": 5,
+				"type": "kList",
+				"subtype": "",
+				"sublen": 0
+			}
+		]
+	},
+	{
 		"name": "$_exportJSON",
 		"ident": 1,
-		"order": 3,
+		"order": 4,
 		"pvardefs": [
 			{
 				"name": "pirLibray",
@@ -176,7 +258,7 @@
 	{
 		"name": "$_fileExists",
 		"ident": 4,
-		"order": 4,
+		"order": 5,
 		"pvardefs": [
 			{
 				"name": "pcPath",
@@ -194,7 +276,7 @@
 	{
 		"name": "$_importJSON",
 		"ident": 5,
-		"order": 5,
+		"order": 6,
 		"pvardefs": [
 			{
 				"name": "pcSource",
@@ -242,7 +324,7 @@
 	{
 		"name": "$_openLibrary",
 		"ident": 2,
-		"order": 6,
+		"order": 7,
 		"pvardefs": [
 			{
 				"name": "pcLibraryPath",
@@ -260,6 +342,49 @@
 				"type": "kItemref",
 				"subtype": "$libs.lib",
 				"sublen": 0
+			}
+		]
+	},
+	{
+		"name": "$_deleteFile",
+		"ident": 7,
+		"order": 8,
+		"pvardefs": [
+			{
+				"name": "pcPath",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 1
+			}
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$_getLibraryPath",
+		"ident": 8,
+		"order": 9,
+		"desc": "pcPath willl be prepended with the build destination if it is not already a full library path",
+		"pvardefs": [
+			{
+				"name": "pcPath",
+				"order": 1,
+				"type": "kFieldreference",
+				"subtype": 0,
+				"sublen": 0,
+				"param": 1
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lcDestination",
+				"order": 2,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
 			}
 		]
 	}
