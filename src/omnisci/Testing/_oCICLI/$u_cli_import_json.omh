@@ -34,9 +34,9 @@ Do $cinst.$assertMocks()
 Do $cinst.$when("we can't import from JSON")
 
 Do iorMock.$mock("$_fileExists").$expect("destination/library").$return(kFalse)
-Do llErrors.$cols.$add("pathname",kCharacter,kSimplechar,kCharacterMaxLen)
+Do llErrors.$cols.$add("pathname",kCharacter,kSimplechar,100000000)
 Do llErrors.$cols.$add("errorcode",kInteger)
-Do llErrors.$cols.$add("errortext",kCharacter,kSimplechar,kCharacterMaxLen)
+Do llErrors.$cols.$add("errortext",kCharacter,kSimplechar,100000000)
 Do llErrors.$cols.$add("lineno",kInteger)
 Do llWarnings.$copydefinition(llErrors)
 

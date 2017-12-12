@@ -34,7 +34,7 @@ Do $cinst.$when("we can't export to JSON")
 
 Do llErrors.$cols.$add("class",kItemref)
 Do llErrors.$cols.$add("errorcode",kInteger)
-Do llErrors.$cols.$add("errortext",kCharacter,kSimplechar,kCharacterMaxLen)
+Do llErrors.$cols.$add("errortext",kCharacter,kSimplechar,100000000)
 Do llWarnings.$copydefinition(llErrors)
 
 Do llErrors.$add($cclass(),1,"error")
