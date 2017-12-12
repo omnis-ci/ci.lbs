@@ -4,20 +4,20 @@ Do $cinst.$getCLIArgument(3) Returns lcDestination
 ;  Validate the source exists
 Calculate lcLibraryJson as con(lcSourcePath,pathsep(),"library.json")
 If $cinst.$_fileExists(lcLibraryJson)=kFalse
-	Do $cinst.$writeStderr(con($cinst.$kRed(),"No library.json found at ",kSq,lcSourcePath,kSq))
+	Do $cinst.$writeStderr(con($cinst.$kRed(),"No library.json found at ",kSq,lcSourcePath,kSq,$cinst.$kReset()))
 	Quit method 1
 End If
 
 ;  Validate the parent for the destination does exist
 Calculate lcDestinationParent as FileOps.$parentdir(lcDestination)
 If $cinst.$_fileExists(lcDestinationParent)=kFalse
-	Do $cinst.$writeStderr(con($cinst.$kRed(),kSq,lcDestinationParent,kSq," does not exist for writing ",kSq,lcDestination,kSq))
+	Do $cinst.$writeStderr(con($cinst.$kRed(),kSq,lcDestinationParent,kSq," does not exist for writing ",kSq,lcDestination,kSq,$cinst.$kReset()))
 	Quit method 2
 End If
 
 ;  Validate the destination does not exist
 If $cinst.$_fileExists(lcDestination)=kTrue
-	Do $cinst.$writeStderr(con($cinst.$kRed(),"The destination ",kSq,lcDestination,kSq," must not already exist"))
+	Do $cinst.$writeStderr(con($cinst.$kRed(),"The destination ",kSq,lcDestination,kSq," must not already exist",$cinst.$kReset()))
 	Quit method 3
 End If
 

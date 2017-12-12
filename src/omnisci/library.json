@@ -1,5 +1,5 @@
 {
-	"omnisversion": "8.1.1",
+	"omnisversion": "8.1.3",
 	"includes": [
 		"OMNISCLI",
 		"OMNISTAP"
@@ -9,7 +9,7 @@
 		"ignoreexternal": false,
 		"nodebug": false,
 		"userinfo": "",
-		"vcsbuilddate": "",
+		"vcsbuilddate": "Read Only",
 		"vcsbuildersname": "",
 		"vcsbuildnotes": ""
 	},

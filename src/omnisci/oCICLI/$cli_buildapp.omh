@@ -1,0 +1,30 @@
+Do $cinst.$getCLIArgument(4) Returns lcRequiredLibs     ;; must be a CSV list of libraries, can be full paths or we will assume destination directory
+
+While len(lcRequiredLibs)
+	Calculate lcLibrary as strtok(nam(lcRequiredLibs),',')
+	Do method $_getLibraryPath (lcLibrary)
+	;  Validate the library exists
+	If $cinst.$_fileExists(lcLibrary)=kFalse
+		Do $cinst.$writeStderr(con($cinst.$kRed(),"The library path ",kSq,lcLibrary,kSq," does not exist",$cinst.$kReset()))
+		Quit method 5
+	End If
+	
+	;  Open the library
+	Do $cinst.$_openLibrary(lcLibrary) Returns lirLibray     ;; do not open the startup task
+	If isclear(lirLibray)
+		Do $cinst.$writeStderr(con($cinst.$kRed(),"Failed to open the library at ",kSq,lcLibrary,kSq,$cinst.$kReset()))
+		Quit method 6
+	End If
+	
+End While
+
+;  if the destination libary exists, delete it
+Do $cinst.$getCLIArgument(3) Returns lcDestination
+If $cinst.$_fileExists(lcDestination)=kTrue
+	If $cinst.$_deleteFile(lcDestination)=kFalse
+		Do $cinst.$writeStderr(con($cinst.$kLightRed(),"The destination ",kSq,lcDestination,kSq," exists and could not be deleted",$cinst.$kReset()))
+		Quit method 3
+	End If
+End If
+
+Do method $cli_import_json
