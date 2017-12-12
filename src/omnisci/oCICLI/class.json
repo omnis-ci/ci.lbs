@@ -1,6 +1,6 @@
 {
 	"classtype": "kObjectclass",
-	"internalversion": 52,
+	"internalversion": 54,
 	"superclass": "omniscli.oOmnisCLI",
 	"designtaskname": "Startup_Task",
 	"cvardefs": [
@@ -19,7 +19,7 @@
 		"editordata": "",
 		"external": true,
 		"issupercomponent": false,
-		"moddate": "2017-12-11 12:06:10",
+		"moddate": "2017-12-12 13:25:53",
 		"selfcontained": false,
 		"showascheckedout": false,
 		"userinfo": "",

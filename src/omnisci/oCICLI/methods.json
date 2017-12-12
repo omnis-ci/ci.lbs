@@ -23,13 +23,6 @@
 				"sublen": 100000000
 			},
 			{
-				"name": "lcExportedLibraryName",
-				"order": 4,
-				"type": "kCharacter",
-				"subtype": "kSimplechar",
-				"sublen": 100000000
-			},
-			{
 				"name": "lcLibraryPath",
 				"order": 1,
 				"type": "kCharacter",
@@ -104,13 +97,6 @@
 				"sublen": 100000000
 			},
 			{
-				"name": "lirLibray",
-				"order": 3,
-				"type": "kItemref",
-				"subtype": "$libs.lib",
-				"sublen": 0
-			},
-			{
 				"name": "llErrors",
 				"order": 4,
 				"type": "kList",
@@ -136,22 +122,8 @@
 		],
 		"lvardefs": [
 			{
-				"name": "lbOK",
-				"order": 6,
-				"type": "kBoolean",
-				"subtype": 0,
-				"sublen": 0
-			},
-			{
 				"name": "lcDestination",
 				"order": 2,
-				"type": "kCharacter",
-				"subtype": "kSimplechar",
-				"sublen": 100000000
-			},
-			{
-				"name": "lcDestinationParent",
-				"order": 8,
 				"type": "kCharacter",
 				"subtype": "kSimplechar",
 				"sublen": 100000000
@@ -164,22 +136,8 @@
 				"sublen": 100000000
 			},
 			{
-				"name": "lcLibraryJson",
-				"order": 7,
-				"type": "kCharacter",
-				"subtype": "kSimplechar",
-				"sublen": 100000000
-			},
-			{
 				"name": "lcRequiredLibs",
 				"order": 9,
-				"type": "kCharacter",
-				"subtype": "kSimplechar",
-				"sublen": 100000000
-			},
-			{
-				"name": "lcSourcePath",
-				"order": 1,
 				"type": "kCharacter",
 				"subtype": "kSimplechar",
 				"sublen": 100000000
@@ -189,20 +147,6 @@
 				"order": 3,
 				"type": "kItemref",
 				"subtype": "$libs.lib",
-				"sublen": 0
-			},
-			{
-				"name": "llErrors",
-				"order": 4,
-				"type": "kList",
-				"subtype": "",
-				"sublen": 0
-			},
-			{
-				"name": "llWarnings",
-				"order": 5,
-				"type": "kList",
-				"subtype": "",
 				"sublen": 0
 			}
 		]
@@ -337,7 +281,7 @@
 		],
 		"lvardefs": [
 			{
-				"name": "lirLibray",
+				"name": "lirLibrary",
 				"order": 2,
 				"type": "kItemref",
 				"subtype": "$libs.lib",

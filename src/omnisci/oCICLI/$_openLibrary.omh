@@ -1,2 +1,2 @@
-Do $libs.$add(con("!!!",pcLibraryPath)) Returns lirLibray
-Quit method lirLibray
+Do $libs.$add(con("!!!",pcLibraryPath)) Returns lirLibrary
+Quit method lirLibrary
