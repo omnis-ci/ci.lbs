@@ -1,5 +1,7 @@
 {
 	"classtype": "kSystemtable",
+	"omnisversion": "11.0",
+	"omnisbuild": 110035659,
 	"internalversion": 2,
 	"iconversion": 0,
 	"nextident": 0,
@@ -11,6 +13,7 @@
 		"moddate": "2017-09-25 21:40:37",
 		"showascheckedout": false,
 		"userinfo": "",
+		"vcsrevision": 0,
 		"version": ""
 	}
 }

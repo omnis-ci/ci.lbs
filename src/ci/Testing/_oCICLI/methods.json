@@ -1,7 +1,6 @@
 [
 	{
 		"name": "$setup",
-		"ident": 0,
 		"order": 1,
 		"pvardefs": [
 
@@ -12,7 +11,6 @@
 	},
 	{
 		"name": "$u_cli_export_json",
-		"ident": 1,
 		"order": 2,
 		"pvardefs": [
 
@@ -43,7 +41,6 @@
 	},
 	{
 		"name": "$u_cli_import_json",
-		"ident": 2,
 		"order": 3,
 		"pvardefs": [
 

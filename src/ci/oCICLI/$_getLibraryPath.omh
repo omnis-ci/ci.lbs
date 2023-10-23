@@ -1,9 +1,9 @@
-If low(right(pcPath,4))<>".lbs"     ;; add the file suffix
+If low(right(pcPath,4))<>".lbs" ## add the file suffix
 	Calculate pcPath as con(pcPath,".lbs")
 End If
 
-If pos(sys(9),pcPath)     ;; if we have a path separator
-	Quit method      ;; leave pcPath as it is
+If pos(sys(9),pcPath) ## if we have a path separator
+	Quit method ## leave pcPath as it is
 Else
 	Do $cinst.$getCLIArgument(3) Returns lcDestination
 	Calculate pcPath as con(left(lcDestination,rpos(sys(9),lcDestination)),pcPath)

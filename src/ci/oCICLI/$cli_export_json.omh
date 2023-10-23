@@ -1,39 +1,39 @@
 Do $cinst.$getCLIArgument(2) Returns lcLibraryPath
 Do $cinst.$getCLIArgument(3) Returns lcDestination
 
-;  Validate the library exists
+# Validate the library exists
 If $cinst.$_fileExists(lcLibraryPath)=kFalse
 	Do $cinst.$writeStderr(con($cinst.$kRed(),"The library path ",kSq,lcLibraryPath,kSq," does not exist"))
 	Quit method 1
 End If
 
-;  Validate the destination exists
+# Validate the destination exists
 If $cinst.$_fileExists(lcDestination)=kFalse
 	Do $cinst.$writeStderr(con($cinst.$kRed(),"The destination ",kSq,lcDestination,kSq," does not exist"))
 	Quit method 2
 End If
 
-;  Open the library
+# Open the library
 Do $cinst.$_openLibrary(lcLibraryPath) Returns lirLibray
 If isclear(lirLibray)
 	Do $cinst.$writeStderr(con($cinst.$kRed(),"Failed to open the library at ",kSq,lcLibraryPath,kSq))
 	Quit method 3
 End If
 
-;  Export to JSON
+# Export to JSON
 Do $cinst.$_exportJSON(lirLibray,lcDestination,llErrors,llWarnings) Returns lbOK
 
-;  Output warnings
+# Output warnings
 For llWarnings.$line from 1 to llWarnings.$linecount step 1
 	Do $cinst.$writeStderr(con($cinst.$kYellow(),"Warning for ",$cinst.$kReset(),llWarnings.class().$fullname,$cinst.$kYellow(),": ",$cinst.$kReset(),llWarnings.errorcode," ",llWarnings.errortext))
 End For
 
-;  Output errors
+# Output errors
 For llErrors.$line from 1 to llErrors.$linecount step 1
 	Do $cinst.$writeStderr(con($cinst.$kRed(),"Error for ",$cinst.$kReset(),llErrors.class().$fullname,$cinst.$kRed(),": ",$cinst.$kReset(),llErrors.errorcode," ",llErrors.errortext))
 End For
 
-;  Return success or failure
+# Return success or failure
 If lbOK=kFalse
 	Do $cinst.$writeStdout("Export failed")
 	Quit method 4
